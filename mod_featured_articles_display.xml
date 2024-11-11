@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+    <name>mod_featured_articles_display</name>
+    <creationDate>2024-11-09</creationDate>
+    <version>1.0.0</version>
+    <description>Module to display featured articles with filtering, sorting, and intro text options.</description>
+    <files>
+        <filename module="mod_featured_articles_display">mod_featured_articles_display.php</filename>
+        <filename>src/Helper/ArticlesHelper.php</filename>
+        <filename>tmpl/default.php</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="number_of_articles" type="number" default="5" label="Number of Articles" description="Specify the number of featured articles to display." />
+                <field name="category_filter" type="category" label="Category Filter" description="Select categories to filter articles." multiple="true" extension="com_content" />
+                <field name="show_introtext" type="radio" default="1" label="Show Intro Text" description="Toggle displaying the intro text for articles.">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="sort_order" type="list" default="newest_first" label="Sorting Order" description="Choose the order in which articles should be displayed.">
+                    <option value="newest_first">Newest First</option>
+                    <option value="oldest_first">Oldest First</option>
+                    <option value="alphabetical">Alphabetical (Title)</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
